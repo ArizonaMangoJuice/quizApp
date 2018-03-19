@@ -115,3 +115,8 @@ header{
     background: mintcream;
     color: black;
 }
+.questions-part{
+    color: white;
+    height: 400px;
+    border: 1px solid;
+}
