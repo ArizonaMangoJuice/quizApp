@@ -1,5 +1,4 @@
-const QUESTIONS = [  
-    {
+const QUESTIONS = [{
         question: "When did league of legends get out of beta?",
         answers: [
             "spring 2009",
@@ -7,7 +6,8 @@ const QUESTIONS = [
             "fall 2009",
             "winter 2009"
         ],
-        answer:"fall 2009"
+        answer: "fall 2009",
+        answerDescription: ""
     },
     {
         question: "What was the first champion released out of the beta phase?",
@@ -25,16 +25,17 @@ const QUESTIONS = [
             "1",
             "5",
             "10",
-            "9"],
+            "9"
+        ],
         answer: "9"
     },
     {
         question: "what lane the does the 'marskman' character usually go",
         answers: [
-                "top lane",
-                "jungle lane",
-                "middle lane",
-                "bottom lane"
+            "top lane",
+            "jungle lane",
+            "middle lane",
+            "bottom lane"
         ],
         answer: "bottom"
     },
@@ -42,8 +43,8 @@ const QUESTIONS = [
         question: "what does the support do during the match",
         answers: [
             "help the 'marksman' character and the team",
-            "output the most amount of damage", 
-            "clear the jungle and help lanes", 
+            "output the most amount of damage",
+            "clear the jungle and help lanes",
             "leave the game and not do anything"
         ],
         answer: "help the 'marksman' character and the team"
@@ -99,18 +100,26 @@ const QUESTIONS = [
         answer: "clear the jungle and nuetral objectives"
     }
 
-   
+
 ];
 let test = 0;
-function nextQuestion(){
-    $("form").on("submit",function(e){
-        e.preventdefault();
-        console.log(test);
-        
-       
+
+function nextQuestion() {
+    $("form").on("submit", function(e) {
+        e.preventDefault();
+        console.log($("input[name='question']:checked").val() == QUESTIONS[test]["answer"]);
+
+        if ($("input[name='question']:checked").val() == QUESTIONS[test]["answer"]) {
+            test++;
+            renderQuestions();
+        }
+
+
+
     });
 }
-function renderQuestions(){
+
+function renderQuestions() {
     $(".questions-part").html(
         `
             <h1>${QUESTIONS[test]["question"]}</h1>
@@ -137,7 +146,7 @@ function renderQuestions(){
     )
 }
 
-function createQuiz(){
+function createQuiz() {
     renderQuestions();
     nextQuestion();
 }
