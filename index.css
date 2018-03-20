@@ -3,67 +3,163 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
+
 body {
-	line-height: 1;
+    line-height: 1;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+    list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+    quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
 html {
     box-sizing: border-box;
     background: url(https://na.leagueoflegends.com/sites/default/files/upload/art/teambuilder-wallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
-  *, *:before, *:after {
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
-main{
+
+main {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
-header{
+
+header {
     padding: 15px;
 }
-.icon{
+
+.icon {
     display: inline-block;
     text-indent: -9999px;
     width: 64px;
@@ -71,73 +167,99 @@ header{
     background-size: 64px 64px;
     background: url(https://addons-media.operacdn.com/media/extensions/75/192375/0.6-rev2/icons/icon_64x64.png);
 }
-.question-and-points{
+
+.question-and-points {
     display: inline-block;
     height: 64px;
     width: 250px;
-    
     vertical-align: top;
     font-size: 24px;
     padding: 18px 0 18px 0px;
     float: right;
     color: white;
 }
-.question-and-points p{
+
+.question-and-points p {
     display: inline-block;
 }
-.intro-title{
+
+.intro-title {
     height: 600px;
     color: white;
     margin-top: 70px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
 }
-.intro-title h1{
+
+.intro-title h1 {
     font-size: 48px;
     text-align: center;
     padding: 15px;
     padding-top: 90px;
 }
-.start-button{
-    border: 1px solid rgba(0,0,0,0.01);
+
+.start-button {
+    border: 1px solid rgba(0, 0, 0, 0.01);
     font-size: 48px;
     padding: 5px 10px 5px 10px;
     color: white;
-    background: rgba(0,0,0,0.01);
+    background: rgba(0, 0, 0, 0.01);
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 120px;
     border-radius: 3px;
 }
-.start-button:hover{
+
+.start-button:hover {
     transition: 400ms;
     background: mintcream;
     color: black;
 }
-.questions-part{
+
+.questions-part {
     color: white;
-    height: 400px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+}
+
+#question {
+    text-align: center;
+    font-size: 49px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#next {
+    display: block;
+    margin: 25px auto;
+    font-size: 36px;
     border: 1px solid;
 }
 
 .radio-item {
-    display: inline-block;
+    display: block;
     position: relative;
-    padding: 0 6px;
-    margin: 10px 0 0;
-  }
-  
-  .radio-item input[type='radio'] {
+    margin: 10px auto 0 auto;
+    width: 50%;
+    background: white;
+    border-radius: 2px;
+}
+
+.radio-item input[type='radio'] {
     display: none;
-  }
-  
-  .radio-item label {
+}
+
+.radio-item label {
     color: #666;
     font-weight: normal;
-  }
-  
-  .radio-item label:before {
+    width: 100%;
+    display: block;
+    padding: 0px 6px 10px 6px;
+}
+
+.radio-item label:before {
     content: " ";
     display: inline-block;
     position: relative;
@@ -148,9 +270,9 @@ header{
     border-radius: 11px;
     border: 2px solid #004c97;
     background-color: transparent;
-  }
-  
-  .radio-item input[type=radio]:checked + label:after {
+}
+
+.radio-item input[type=radio]:checked+label:after {
     border-radius: 11px;
     width: 12px;
     height: 12px;
@@ -160,4 +282,34 @@ header{
     content: " ";
     display: block;
     background: #004c97;
-  }
+}
+
+.hidden {
+    display: none;
+}
+
+.correct {
+    background: #00a74c;
+}
+
+.incorrect {
+    background: #e53449;
+}
+
+.answer-page {
+    padding: 35px;
+}
+
+.answer-page h1 {
+    text-align: center;
+    font-size: 49px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#nextquestionbutton {
+    border: 1px solid;
+    font-size: 36px;
+    display: block;
+    margin: 15px auto;
+}
