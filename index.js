@@ -105,7 +105,7 @@ const QUESTIONS = [{
 let test = 0;
 
 function nextQuestion() {
-    $("form").on("submit", function(e) {
+    $(".questions-part").on("submit", function(e) {
         e.preventDefault();
         console.log($("input[name='question']:checked").val() == QUESTIONS[test]["answer"]);
 
@@ -124,22 +124,22 @@ function renderQuestions() {
         `
             <h1>${QUESTIONS[test]["question"]}</h1>
             <form>
-                <label>
-                    <input type="radio" name="question" value="${QUESTIONS[test]["answers"][0]}">
-                    <span>${QUESTIONS[test]["answers"][0]}</span>
-                </label>
-                <label>
-                    <input type="radio" name="question" value="${QUESTIONS[test]["answers"][1]}">
-                    <span>${QUESTIONS[test]["answers"][1]}</span>
-                </label>
-                <label>
-                    <input type="radio" name="question" value="${QUESTIONS[test]["answers"][2]}">
-                    <span>${QUESTIONS[test]["answers"][2]}</span>
-                </label>
-                <label>
-                    <input type="radio" name="question" value="${QUESTIONS[test]["answers"][3]}">
-                    <span>${QUESTIONS[test]["answers"][3]}</span>
-                </label>
+            <div class="radio-item">
+            <input type="radio" id="question-one" name="question" value="${QUESTIONS[test]["answers"][0]}">
+                <label for="question-one">${QUESTIONS[test]["answers"][0]}</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="question-two" name="question" value="${QUESTIONS[test]["answers"][1]}">
+                <label for="question-two">${QUESTIONS[test]["answers"][1]}</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="question-three" name="question" value="${QUESTIONS[test]["answers"][2]}">
+                <label for="question-three">${QUESTIONS[test]["answers"][2]}</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="question-four" name="question" value="${QUESTIONS[test]["answers"][3]}">
+                <label for="question-four">${QUESTIONS[test]["answers"][4]}</label>
+            </div>
                 <input type="submit" id="next">
             </form>
         `
@@ -152,3 +152,15 @@ function createQuiz() {
 }
 
 $(createQuiz);
+
+/*
+<div class="radio-item">
+            <input type="radio" id="ritema" name="ritem" value="ropt1">
+            <label for="ritema">${QUESTIONS[test]["answers"][0]}</label>
+        </div>
+        
+        <div class="radio-item">
+            <input type="radio" id="ritemb" name="ritem" value="ropt2">
+            <label for="ritemb">Option 2</label>
+        </div>
+*/
