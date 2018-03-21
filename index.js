@@ -177,22 +177,22 @@ function renderQuestions() {
             `
             <h1 id="question">${QUESTIONS[test]["question"]}</h1>
             <form>
-            <div class="radio-item">
-            <input type="radio" id="question-one" name="question" value="${QUESTIONS[test]["answers"][0]}">
-                <label for="question-one">${QUESTIONS[test]["answers"][0]}</label>
-            </div>
-            <div class="radio-item">
-                <input type="radio" id="question-two" name="question" value="${QUESTIONS[test]["answers"][1]}">
-                <label for="question-two">${QUESTIONS[test]["answers"][1]}</label>
-            </div>
-            <div class="radio-item">
-                <input type="radio" id="question-three" name="question" value="${QUESTIONS[test]["answers"][2]}">
-                <label for="question-three">${QUESTIONS[test]["answers"][2]}</label>
-            </div>
-            <div class="radio-item">
-                <input type="radio" id="question-four" name="question" value="${QUESTIONS[test]["answers"][3]}">
-                <label for="question-four">${QUESTIONS[test]["answers"][3]}</label>
-            </div>
+                <div class="radio-style">
+                    <input type="radio" id="question-one" name="question" value="${QUESTIONS[test]["answers"][0]}" required>
+                    <label for="question-one">${QUESTIONS[test]["answers"][0]}</label>
+                </div>
+                <div class="radio-style">
+                    <input type="radio" id="question-two" name="question" value="${QUESTIONS[test]["answers"][1]}" required> 
+                    <label for="question-two">${QUESTIONS[test]["answers"][1]}</label>
+                </div>
+                <div class="radio-style">
+                    <input type="radio" id="question-three" name="question" value="${QUESTIONS[test]["answers"][2]}" required>
+                    <label for="question-three">${QUESTIONS[test]["answers"][2]}</label>
+                </div>
+                <div class="radio-style">
+                    <input type="radio" id="question-four" name="question" value="${QUESTIONS[test]["answers"][3]}" required>
+                    <label for="question-four">${QUESTIONS[test]["answers"][3]}</label>
+                </div>
                 <input type="submit" id="next">
             </form>
         `
