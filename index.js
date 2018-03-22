@@ -18,7 +18,7 @@ const QUESTIONS = [{
             "corki"
         ],
         answer: "udyr",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "Udyr was the first champion to be released out of the beta phase of league of legends."
     },
     {
         question: "how many years does league of legends have since it's release",
@@ -29,7 +29,7 @@ const QUESTIONS = [{
             "9"
         ],
         answer: "9",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "League of Legends released on October 27, 2009. So close to 9 years."
     },
     {
         question: "what lane the does the 'marskman' character usually go?",
@@ -40,7 +40,7 @@ const QUESTIONS = [{
             "bottom lane"
         ],
         answer: "bottom lane",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The 'marksman character usually goes bottom lane.'"
     },
     {
         question: "what does the support do during the match?",
@@ -51,7 +51,7 @@ const QUESTIONS = [{
             "leave the game and not do anything"
         ],
         answer: "help the 'marksman' character and the team",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The support, as the name implies helps other lanes and usually stays with the marksman early in the game."
     },
     {
         question: "what does the top laner do?",
@@ -62,7 +62,7 @@ const QUESTIONS = [{
             "lane against the bottom opponents"
         ],
         answer: "push and lane against the other top laner",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The top laner usually stays in the top lane to fight the enemy top laner."
     },
     {
         question: "what does the mid laner do?",
@@ -73,7 +73,7 @@ const QUESTIONS = [{
             "lane against the top lane opponent"
         ],
         answer: "lane against the middle lane opponent",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The mid laner usually stays in the mid lane to fight the enemy mid laner."
     },
     {
         question: "what do the bottom laners do?",
@@ -84,18 +84,18 @@ const QUESTIONS = [{
             "lane against the enemy middle laner"
         ],
         answer: "lane against the enemy bot lane",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The bottom laners are the support and marksman and they usually fight the enemies bottom laners."
     },
     {
-        question: "what does the middle laner do?",
+        question: "what else the middle laner do?",
         answers: [
-            "lane against the enemy middle laner",
+            "roam to help other lanes",
             "clear the jungle and nuetral objectives",
             "lane against the enemy top laner",
             "just afk"
         ],
-        answer: "lane against the enemy middle laner",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answer: "roam to help other lanes",
+        answerDescription: "Mid laners usually roam and stay to fight the enemy mid laners."
     },
     {
         question: "what does the jungler do?",
@@ -106,7 +106,7 @@ const QUESTIONS = [{
             "support the marksman in bot lane"
         ],
         answer: "clear the jungle and nuetral objectives",
-        answerDescription: "League of Legends released on October 27, 2009."
+        answerDescription: "The jungler tries to capture the enemies jungle and tries to get nuetral objectives before the enemy jungler."
     }
 
 
@@ -120,8 +120,29 @@ function incrementScore() {
 }
 
 function incrementNumber() {
+    if (test === 9) {
+        test++;
+        return;
+    }
     test++;
     $("#question-Number").html(test + 1);
+}
+
+function dynamicReturn(score) {
+    if (score <= 6) return `You're not very knowledgeable of league of legends`
+    if (score === 7) return `You have average knowledge of league of legends`;
+    if (score === 8) return `You have above average knowledge of league of legends`;
+    if (score === 9 || score === 10) return `Hot damn! You're good`;
+}
+
+function resultPage() {
+    return `
+        <div class="answer-page">
+            <h1>You got ${(score*10)}% correct</h1>
+            <h1 id="question">${dynamicReturn(score)}</h1>
+            <button class="start-button" id="reset">RESTART</button>
+        </div>
+        `;
 }
 
 function renderAnswerPage() {
@@ -130,7 +151,7 @@ function renderAnswerPage() {
         <div class="answer-page ${$("input[name='question']:checked").val() == QUESTIONS[test]["answer"] ? "correct" : "incorrect"}">
             <h1>${$("input[name='question']:checked").val() == QUESTIONS[test]["answer"] ? "CORRECT!" : "INCORRECT!"}</h1>
             <h1 id="question">${QUESTIONS[test]["answerDescription"]}</h1>
-            <button id="nextquestionbutton">NEXT</button>
+            <button class="start-button" id="nextquestionbutton">NEXT</button>
         </div>
         `;
     //why do i need to increment the number here and it breaks anywhere else?
@@ -146,7 +167,6 @@ function startPage() {
 function answerPage() {
     $(".questions-part").html(renderAnswerPage());
     $(".questions-part").on("click", "#nextquestionbutton", function() {
-
         renderQuestions();
     });
 
@@ -193,24 +213,32 @@ function renderQuestions() {
                     <input type="radio" id="question-four" name="question" value="${QUESTIONS[test]["answers"][3]}" required>
                     <label for="question-four">${QUESTIONS[test]["answers"][3]}</label>
                 </div>
-                <input type="submit" id="next">
+                <input class="start-button" type="submit" id="next">
             </form>
         `
         )
     } else {
-        test = 0;
-        $("#question-Number").html(1)
+        $(".questions-part").html(resultPage());
+        $(".questions-part").on("click", "#reset", function() {
+            reset();
+        });
+        //reset();
     }
 }
 
 function reset() {
-
+    test = 0;
+    $("#question-Number").html(1)
+    $("#Correct-Number").html(0)
+    renderQuestions();
 }
 
 function createQuiz() {
     startPage();
     renderQuestions();
     nextQuestion();
+
+    // resultPage();
 }
 
 $(createQuiz);
